@@ -1,6 +1,6 @@
 
 ## login
-`https://jinhee.auth0.com/authorize?audience=agency&response_type=token&client_id=zbk5rKO3bzTqslDnYoFvh3SgcvwDhiQn&redirect_uri=http://localhost:8080/`
+`https://jinhee.auth0.com/authorize?audience=agency&response_type=token&client_id=zbk5rKO3bzTqslDnYoFvh3SgcvwDhiQn&redirect_uri=https://agency-123.herokuapp.com/`
 
 ### Casting Assistant
 id: assistant@abc.com
