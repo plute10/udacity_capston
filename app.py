@@ -48,7 +48,7 @@ def create_app(test_config=None):
 
     @app.route('/actors')
     @requires_auth(PERMISSION_GET_ACTOR)
-    def get_actors(payload):
+    def get_actors():
         return jsonify({
                         "success": True,
                         "actors": get_array_json(Actor.query.all())
@@ -56,7 +56,7 @@ def create_app(test_config=None):
 
     @app.route('/movies')
     @requires_auth(PERMISSION_GET_MOVIE)
-    def get_movies(payload):
+    def get_movies():
         return jsonify({
                         "success": True,
                         "actors": get_array_json(Movie.query.all())
@@ -64,7 +64,7 @@ def create_app(test_config=None):
 
     @app.route('/actors/<int:id>', methods=['DELETE'])
     @requires_auth(PERMISSION_DELETE_ACTOR)
-    def delete_actor(payload, id):
+    def delete_actor(id):
         actor = Actor.query.filter_by(id=id).one_or_none()
         if actor is None:
             abort(404, "Not Exists Actor.")
@@ -79,7 +79,7 @@ def create_app(test_config=None):
 
     @app.route('/movies/<int:id>', methods=['DELETE'])
     @requires_auth(PERMISSION_DELETE_MOVIE)
-    def delete_movie(payload, id):
+    def delete_movie(id):
         movie = Movie.query.filter_by(id=id).one_or_none()
         if movie is None:
             abort(404, "Not Exists Movie.")
@@ -94,7 +94,7 @@ def create_app(test_config=None):
 
     @app.route('/actors', methods=['POST'])
     @requires_auth(PERMISSION_CREATE_ACTOR)
-    def create_actor(payload):
+    def create_actor():
         name, age, sex = get_validated_body_actor()
         try:
             actor = Actor(name=name, age=age, sex=sex)
@@ -108,7 +108,7 @@ def create_app(test_config=None):
 
     @app.route('/movies', methods=['POST'])
     @requires_auth(PERMISSION_CREATE_MOVIE)
-    def create_movie(payload):
+    def create_movie():
         title, release = get_validated_body_movie()
         try:
             movie = Movie(title=title, release=release)
@@ -122,7 +122,7 @@ def create_app(test_config=None):
 
     @app.route('/actors/<int:id>', methods=['PATCH'])
     @requires_auth(PERMISSION_UPDATE_ACTOR)
-    def update_actor(payload, id):
+    def update_actor(id):
         name, age, sex = get_validated_body_actor()
         actor = Actor.query.filter_by(id=id).one_or_none()
         if actor is None:
@@ -141,7 +141,7 @@ def create_app(test_config=None):
 
     @app.route('/movies/<int:id>', methods=['PATCH'])
     @requires_auth(PERMISSION_UPDATE_MOVIE)
-    def update_movie(payload, id):
+    def update_movie(id):
         title, release = get_validated_body_movie()
         movie = Movie.query.filter_by(id=id).one_or_none()
         if movie is None:
