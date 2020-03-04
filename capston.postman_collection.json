@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "8a8a7908-f408-4152-b20a-9723f562d2ba",
+		"name": "capston",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "welcome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "get actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create actor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"JH\",\n\t\"age\": \"20\",\n\t\"sex\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sunshine\",\n\t\"release\": \"2020-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update actor",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"DH\",\n\t\"age\": \"20\",\n\t\"sex\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sunshine2\",\n\t\"release\": \"2020-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1VTXdPVGcyUkRjNE16WXhRalU1TVVNeE9UZ3lPRFpDTnpCQlFUVTFRMEZET0VZelFqRXlNQSJ9.eyJpc3MiOiJodHRwczovL2ppbmhlZS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU1ZjBiYWE4OGVjMTcwZDZiOGZiODc1IiwiYXVkIjoiYWdlbmN5IiwiaWF0IjoxNTgzMzA5NDI4LCJleHAiOjE1ODMzMTY2MjgsImF6cCI6InpiazVyS08zYnpUcXNsRG5Zb0Z2aDNTZ2N2d0RoaVFuIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.Jkq6uDH0NUtmd60pQ6HpYcN8ceU-9LHkksfYbGg3kQYwmtC3zWxPRYMQEHKf2FnlcMhdrblAdSYybnGyZRr0-Y3t8NlZyLTi5P56d5jwTFpKxqSFcKps3e1zCB8oaou-pLwCkhZtQnex0SpptoIVO1R55VXA5SE9C8jXZTSQjXJI9CsnLqjmqz-ncjQD9YVvKqP4XdRkQ0D-Eko2sxhAyr7W1rdPFLLj0aavHyvth02VO_Omrmun15mZusB80JUK93ZTe5-pExRbiWGsE1FDG0LwOb2ybSzM_seNYTiK35ZxSz0vZo-FgLeeZeg75tNiCLYdV5a82F92RAVpRDCZrQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "41a7c28a-988f-4ab0-9a78-1d70fd7996a0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1d319178-c3c0-41c8-a4c6-d2fc5a39fbfc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "get actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create actor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"JH\",\n\t\"age\": \"20\",\n\t\"sex\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sunshine\",\n\t\"release\": \"2020-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update actor",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"DH\",\n\t\"age\": \"20\",\n\t\"sex\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sunshine2\",\n\t\"release\": \"2020-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1VTXdPVGcyUkRjNE16WXhRalU1TVVNeE9UZ3lPRFpDTnpCQlFUVTFRMEZET0VZelFqRXlNQSJ9.eyJpc3MiOiJodHRwczovL2ppbmhlZS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU1ZjBiZDhjZTljODIwZDVlMWQwN2YyIiwiYXVkIjoiYWdlbmN5IiwiaWF0IjoxNTgzMzEyNzQ0LCJleHAiOjE1ODMzMTk5NDQsImF6cCI6InpiazVyS08zYnpUcXNsRG5Zb0Z2aDNTZ2N2d0RoaVFuIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.GjeiKqT4Dn8ymAMpTAaHtb1iViNghT06ThGfYrDXY_LFwwj2MYpdy99CmB5YdX7VJDRfp6J0NTE1RC_bOzMycVIAWBzOC58FBu_mwv3Dyzltb6G0ANFgRgVzl5Sr-bObuwiFzzAz3BfG76Y_9lF9IyBleGqbJLvSSBpmFCEuD4COV1o6JAl9ZsxnqgZioxDtHZeio4-A_Mxvlrktm6ED-hhB4j-v9rmnomh5AbRKujsNLDP0WAfA4JQ3GNe8Q_Euo2Tsfy5qmwYNnlfLCm3yDNvADhtFTtUk4Vxv3DniALZQosJbmWTrFa-a3-AFcr4PN2HeQOngHxUIEVIPUKMs2A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9274dac9-f604-41dc-9a4d-871e2b2d8976",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3cf9aad-a45f-43da-9695-5db6175fd47c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Executive Producer",
+			"item": [
+				{
+					"name": "get actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create actor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"JH\",\n\t\"age\": \"20\",\n\t\"sex\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sunshine\",\n\t\"release\": \"2020-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update actor",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"DH\",\n\t\"age\": \"20\",\n\t\"sex\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sunshine2\",\n\t\"release\": \"2020-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies/{id}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1VTXdPVGcyUkRjNE16WXhRalU1TVVNeE9UZ3lPRFpDTnpCQlFUVTFRMEZET0VZelFqRXlNQSJ9.eyJpc3MiOiJodHRwczovL2ppbmhlZS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU1ZjBiZmFjZTljODIwZDVlMWQwODU1IiwiYXVkIjoiYWdlbmN5IiwiaWF0IjoxNTgzMzEyODE3LCJleHAiOjE1ODMzMjAwMTcsImF6cCI6InpiazVyS08zYnpUcXNsRG5Zb0Z2aDNTZ2N2d0RoaVFuIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.ylL1XYyD04y7kxCn0rUeObmmmlKZB7wj6S5karQFaa9asC2PKXNGiXu28ezgfpJ3sKOqObk8s2felgC47sjL_gpNCU-_aVJy0Jx0nv9Z2It8sguaJRmoEagll5kpZlcJsS0likEqMFz8YKv08CIH1pmYIDBYCKL9-LPApCZ_lP19nJmnHNBWgfEGALkTKZUh9bE8w6Io2b6uKhafnyX0kSgjMZ2aNdrAa7tE6ajZ5UGswZ15UuSCTSa4tVJKLrRqDgkwizG7Or1nixx8YDlhKdidPR_JeV9HxtmF_EUwqmKNAJCKtCje6fuAVVZIplVuTOn7QLicPI_dYCVSJQeDYw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2b2bf35c-0057-4081-b35e-3aea468c5a7a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "aeb8904b-7077-4296-884b-8499767edf4a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3d550487-b671-47bc-844a-8f9c35737489",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9fc36b12-8f70-4855-b0e9-6debc5db5880",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "96a4b494-0c7b-4e70-875a-a3e8fc61207c",
+			"key": "host",
+			"value": "https://agency-123.herokuapp.com/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
