@@ -10,11 +10,7 @@ AUTH0_DOMAIN = 'jinhee.auth0.com'
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'agency'
 
-## AuthError Exception
-'''
-AuthError Exception
-A standardized way to communicate auth failure modes
-'''
+
 class AuthError(Exception):
     def __init__(self, error, status_code):
         Exception.__init__(self)
@@ -23,11 +19,11 @@ class AuthError(Exception):
 
     def to_dict(self):
         return {
-        'error': self.error.get('description'),
-        'status_code': self.status_code
+            'error': self.error.get('description'),
+            'status_code': self.status_code
         }
 
-## Auth Header
+
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
     """
@@ -60,6 +56,7 @@ def get_token_auth_header():
     token = parts[1]
     return token
 
+
 def check_permissions(permission, payload):
     permissions = payload['permissions']
     if permission is None:
@@ -70,11 +67,12 @@ def check_permissions(permission, payload):
 
     for perm in permissions:
         if perm == permission:
-            return True;
+            return True
     raise AuthError({
         'code': 'no_permission',
         'description': 'You do not have right permission.'
     }, 401)
+
 
 def verify_decode_jwt(token):
     ssl._create_default_https_context = ssl._create_unverified_context
@@ -118,7 +116,8 @@ def verify_decode_jwt(token):
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
-                'description': 'Incorrect claims. Please, check the audience and issuer.'
+                'description':
+                'Incorrect claims. Please, check the audience and issuer.'
             }, 401)
         except Exception:
             raise AuthError({
@@ -129,6 +128,7 @@ def verify_decode_jwt(token):
                 'code': 'invalid_header',
                 'description': 'Unable to find the appropriate key.'
             }, 400)
+
 
 def requires_auth(permission=''):
     def requires_auth_decorator(f):

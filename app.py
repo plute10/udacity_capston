@@ -16,6 +16,7 @@ PERMISSION_CREATE_MOVIE = 'post:movies'
 PERMISSION_UPDATE_MOVIE = 'patch:movies'
 PERMISSION_DELETE_MOVIE = 'delete:movies'
 
+
 def create_app(test_config=None):
     app = Flask(__name__)
     CORS(app)
@@ -160,8 +161,6 @@ def create_app(test_config=None):
     def hello():
         return 'Hi everyone :)'
 
-
-    ## Error Handling
     @app.errorhandler(400)
     def bad_request(error):
         return jsonify({
@@ -201,7 +200,6 @@ def create_app(test_config=None):
                         "error": 405,
                         "message": str(error)
                         }), 405
-
 
     @app.errorhandler(500)
     def internal(error):
